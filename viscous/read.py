@@ -5,7 +5,11 @@ import numpy as np
 
 from viscous.utilities import find_nearest
 
-CONSTANTS = ["days_in_norm_year", "grav", "omega", "radius", "cp_sw", "sound", "vonkar", "cp_air", "rho_air", "rho_sw", "rho_fw", "stefan_boltzmann", "latent_heat_vapor", "latent_heat_fusion", "ocn_ref_salinity", "sea_ice_salinity", "T0_Kelvin", "salt_to_ppt", "ppt_to_salt", "mass_to_Sv", "head_to_PW", "salt_to_Svppt", "salt_to_mmday", "momentum_factor", "hflux_factor", "salinity_factor", "sflux_factor", "nsurface_t", "nsurface_u"]
+CONSTANTS = ["days_in_norm_year", "grav", "omega", "radius", "cp_sw", "sound", "vonkar",
+"cp_air", "rho_air", "rho_sw", "rho_fw", "stefan_boltzmann", "latent_heat_vapor",
+"latent_heat_fusion", "ocn_ref_salinity", "sea_ice_salinity", "T0_Kelvin", "salt_to_ppt",
+"ppt_to_salt", "mass_to_Sv", "head_to_PW", "salt_to_Svppt", "salt_to_mmday", "momentum_factor",
+"hflux_factor", "salinity_factor", "sflux_factor", "nsurface_t", "nsurface_u"]
 
 def read_u_coords(path,return_dx=False):
     full_data = Dataset(path,"r")
@@ -38,7 +42,7 @@ def read_density(path):
     rho = np.array(full_data.variables["RHO"][0,...]) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3
     full_data.close()
     return rho
-    
+
 def read_potential_density(path):
     full_data = Dataset(path,"r")
     pd = np.array(full_data.variables["PD"][0,...]) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3
@@ -94,7 +98,7 @@ def read_temperature(path):
     temp = np.array(full_data.variables["TEMP"][0,...])
     full_data.close()
     return temp
-    
+
 def read_density_gradient(path):
     full_data = Dataset(path,"r")
     q = np.array(full_data.variables["Q"][0,...])/1E3*1E2**4 # g/cm^4 -> kg/m^4
@@ -106,13 +110,20 @@ def read_vorticity(path):
     pv = np.array(full_data.variables["PV"][0,...])*1E2 # 1/s/cm -> 1/s/m
     full_data.close()
     return pv
-    
+
+def read_windstress(path):
+    full_data = Dataset(path,"r")
+    taux = np.array(full_data.variables["TAUX"][0,...]) / (1E5 * 1E-2**2) # dyn/cm^2 -> N/m^2
+    tauy = np.array(full_data.variables["TAUY"][0,...]) / (1E5 * 1E-2**2) # dyn/cm^2 -> N/m^2
+    full_data.close()
+    return taux, tauy
+
 def read_constants(path):
     full_data = Dataset(path,"r")
     constants = {key: full_data.variables[key][0] for key in full_data.variables.keys() if key in CONSTANTS}
     full_data.close()
     return constants
-    
+
 def read_region_mask(path):
     full_data = Dataset(path,"r")
     region_mask = full_data.variables["REGION_MASK"][:]
@@ -121,5 +132,5 @@ def read_region_mask(path):
     regmask = np.ones(region_mask.shape, dict(names=regions, formats=[bool]*len(regions)))
     regmask['Pacific'] = (region_mask == 2)
     regmask['Atlantic'] = (region_mask >= 6) & (region_mask != 7)
-    regmask['Indo-Pacific'] = (region_mask >= 2) & (region_mask <= 3)    
+    regmask['Indo-Pacific'] = (region_mask >= 2) & (region_mask <= 3)
     return regmask
