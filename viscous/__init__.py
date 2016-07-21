@@ -88,7 +88,8 @@ def set_style(out_type="screen"):
                      "\\usepackage{microtype}",
                      "\\usepackage{textcase}",
                      "\\microtypesetup{expansion=false}",
-                     "\\newcommand{\\spacedallcaps}[1]{\\textls[160]{\\sffamily\\MakeTextUppercase{#1}}}"
+                     "\\newcommand{\\spacedallcaps}[1]{\\textls[160]{\\sffamily\\MakeTextUppercase{#1}}}",
+                     "\\usepackage{siunitx}"
                     ]
                  }
         font_scale = 1.
