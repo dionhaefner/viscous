@@ -56,7 +56,8 @@ def set_style(out_type="screen"):
 					 "\\usepackage{libertine}",
                      "\\usepackage{FiraSans}",
                      "\\usepackage{newtxmath}",
-                     "\\usepackage{FiraMono}"
+                     "\\usepackage{FiraMono}",
+                     "\\usepackage{siunitx}"
                     ]
                  }
         font_scale = 1.
@@ -85,10 +86,6 @@ def set_style(out_type="screen"):
                      "\\usepackage{FiraSans}",
                      "\\usepackage{newtxmath}",
                      "\\usepackage{FiraMono}",
-                     "\\usepackage{microtype}",
-                     "\\usepackage{textcase}",
-                     "\\microtypesetup{expansion=false}",
-                     "\\newcommand{\\spacedallcaps}[1]{\\textls[160]{\\sffamily\\MakeTextUppercase{#1}}}",
                      "\\usepackage{siunitx}"
                     ]
                  }
