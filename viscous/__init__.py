@@ -8,6 +8,7 @@ import viscous.calc
 import viscous.utilities
 from viscous.plotting import *
 from viscous.ipython_tools import *
+from viscous.regrid import regrid
 
 sanitize = sanitize.sanitize
 figsize = figsize.figsize
@@ -43,9 +44,11 @@ def set_style(out_type="screen"):
                  "figure.titlesize": 11,
                  "axes.titlesize": 10,
                  "font.size": 10,
+                 "text.color": "black",
                  "savefig.bbox": "standard",
                  "savefig.format": "pdf",
-                 "font.family": "sans-serif",
+                 "savefig.dpi": 300,
+                 "font.family": "serif",
                  "font.serif": "Linux Libertine O",
                  "font.sans-serif": "Fira Sans",
                  "text.usetex": True,
@@ -71,9 +74,11 @@ def set_style(out_type="screen"):
                  "axes.titlesize": 10,
                  "axes.labelsize": 9,
                  "font.size": 10,
+                 "text.color": "black",
                  "savefig.bbox": "standard",
                  "savefig.format": "pgf",
-                 "font.family": "sans-serif",
+                 "savefig.dpi": 300,
+                 "font.family": "serif",
                  "font.serif": [],
                  "font.sans-serif": [],
                  "text.usetex": True,
