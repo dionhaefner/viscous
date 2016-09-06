@@ -3,7 +3,7 @@ from __future__ import division
 from netCDF4 import Dataset
 import numpy as np
 
-from viscous.utilities import find_nearest
+from viscous.utilities import find_nearest, scale_lon
 
 CONSTANTS = ["days_in_norm_year", "grav", "omega", "radius", "cp_sw", "sound", "vonkar",
 "cp_air", "rho_air", "rho_sw", "rho_fw", "stefan_boltzmann", "latent_heat_vapor",
@@ -14,6 +14,7 @@ CONSTANTS = ["days_in_norm_year", "grav", "omega", "radius", "cp_sw", "sound", "
 def read_u_coords(path,return_dx=False):
     full_data = Dataset(path,"r")
     lon,lat = np.array(full_data.variables["ULONG"][:]), np.array(full_data.variables["ULAT"][:])
+    lon = scale_lon(lon)
     depth = np.array(full_data.variables["z_t"][:]) / 1E2 # cm -> m
     dx = np.array(full_data.variables["DXU"][:])/1E2 # cm -> m
     dy = np.array(full_data.variables["DYU"][:])/1E2 # cm -> m
@@ -27,6 +28,7 @@ def read_u_coords(path,return_dx=False):
 def read_t_coords(path,return_dx=False):
     full_data = Dataset(path,"r")
     lon,lat = np.array(full_data.variables["TLONG"][:]), np.array(full_data.variables["TLAT"][:])
+    lon = scale_lon(lon)
     depth = np.array(full_data.variables["z_t"][:]) / 1E2 # cm -> m
     dx = np.array(full_data.variables["DXT"][:])/1E2 # cm -> m
     dy = np.array(full_data.variables["DYT"][:])/1E2 # cm -> m

@@ -84,7 +84,7 @@ class Regridder(object):
 
 # global Regridder object so settings can be cached between function calls
 regridder = Regridder()
-def regrid(coords, values, rcoords, method="linear"):
+def regrid(coords, values, rcoords, method="linear", cyclic_ax=None, cyclic_val=360.):
     try:
         tmp = iter(coords[0])
     except TypeError:
@@ -95,4 +95,10 @@ def regrid(coords, values, rcoords, method="linear"):
     get_points = lambda x: np.vstack([i.flatten() for i in x]).T
     coords = get_points(coords)
     values = values.flatten()
+    if not cyclic_ax is None:
+        npoints = coords.shape[0]
+        coords = np.tile(coords,(3,1))
+        coords[:npoints,cyclic_ax] -= cyclic_val
+        coords[npoints:2*npoints,cyclic_ax] += cyclic_val
+        values = np.tile(values,3)
     return regridder.evaluate(coords, values, rcoords, method)

@@ -13,6 +13,7 @@ from viscous.regrid import regrid
 sanitize = sanitize.sanitize
 figsize = figsize.figsize
 subplots = subplots.subplots
+despine = sns.despine
 
 def set_style(out_type="screen"):
     sns.mpl.rcdefaults()
@@ -73,6 +74,7 @@ def set_style(out_type="screen"):
                  "figure.titlesize": 11,
                  "axes.titlesize": 10,
                  "axes.labelsize": 9,
+                 "axes.facecolor": "white",
                  "font.size": 10,
                  "text.color": "black",
                  "savefig.bbox": "standard",
@@ -99,5 +101,5 @@ def set_style(out_type="screen"):
     else:
         raise ValueError("Unrecognized output type: " + str(out_type))
 
-    sns.set(style="dark", context=context, color_codes=True, font_scale=font_scale, rc=rc_params)
+    sns.set(style="ticks", context=context, color_codes=True, font_scale=font_scale, rc=rc_params)
     sns.mpl.pyplot.close()
