@@ -15,5 +15,5 @@ def set_style(*styles):
         if style in available_styles:
              style_paths.append(STYLE_PATH + STYLE_NAME.format(style))
         else:
-             raise ValueError("Style {} not found. Available styles: {}".format(style,", ".join(styles)))
+             raise ValueError("Style {} not found. Available styles: {}".format(style,", ".join(available_styles)))
     mpl.style.use(style_paths)
