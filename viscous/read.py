@@ -41,7 +41,7 @@ def read_t_coords(path,return_dx=False):
 
 def read_density(path):
     full_data = Dataset(path,"r")
-    rho = np.array(full_data.variables["RHO"][0,...]) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3
+    rho = np.array(full_data.variables["RHO"][0,...],dtype=np.float64) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3
     full_data.close()
     return rho
 
@@ -103,13 +103,13 @@ def read_temperature(path):
 
 def read_density_gradient(path):
     full_data = Dataset(path,"r")
-    q = np.array(full_data.variables["Q"][0,...])/1E3*1E2**4 # g/cm^4 -> kg/m^4
+    q = np.array(full_data.variables["Q"][0,...],dtype=np.float64)/1E3*1E2**4 # g/cm^4 -> kg/m^4
     full_data.close()
     return q
 
 def read_vorticity(path):
     full_data = Dataset(path,"r")
-    pv = np.array(full_data.variables["PV"][0,...])*1E2 # 1/s/cm -> 1/s/m
+    pv = np.array(full_data.variables["PV"][0,...],dtype=np.float64)*1E2 # 1/s/cm -> 1/s/m
     full_data.close()
     return pv
 

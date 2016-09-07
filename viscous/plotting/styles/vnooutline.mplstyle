@@ -1,0 +1,7 @@
+xtick.major.size : 0
+ytick.major.size : 0
+xtick.minor.size : 0
+ytick.minor.size : 0
+
+axes.edgecolor : white
+axes.linewidth : 0

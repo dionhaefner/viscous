@@ -15,5 +15,6 @@ setup(name='viscous',
       url='',
       packages = find_packages(),
       install_requires=['numpy','scipy','matplotlib','seaborn','ipython'],
+      include_package_data=True
      # scripts=viscous_scripts()
       )

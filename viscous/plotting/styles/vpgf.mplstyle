@@ -1,0 +1,23 @@
+text.usetex : True
+text.color : black
+
+figure.figsize : 6.90, 4.26
+figure.titlesize : 11.0
+figure.dpi : 80
+
+axes.titlesize : 10.0
+axes.labelsize : 9.0
+
+xtick.labelsize : 10.0
+
+ytick.labelsize : 10.0
+
+legend.fontsize : 10.0
+
+savefig.dpi : 300
+
+font.family : serif
+
+pgf.texsystem : pdflatex
+pgf.preamble : \usepackage[T1]{fontenc}, \usepackage[utf8]{inputenc}, \usepackage{amsmath}, \usepackage{libertine}, \usepackage{FiraSans}, \usepackage{newtxmath}, \usepackage{FiraMono}, \usepackage{siunitx}
+pgf.rcfonts : False
