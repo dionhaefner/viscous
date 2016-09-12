@@ -122,7 +122,7 @@ def read_windstress(path):
 
 def read_constants(path):
     full_data = Dataset(path,"r")
-    constants = {key: full_data.variables[key][0] for key in full_data.variables.keys() if key in CONSTANTS}
+    constants = {key: full_data.variables[key][:] for key in full_data.variables.keys() if key in CONSTANTS}
     full_data.close()
     return constants
 
