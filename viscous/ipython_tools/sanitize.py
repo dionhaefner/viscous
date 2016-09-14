@@ -1,6 +1,6 @@
 def sanitize(string):
     import viscous
-    if viscous._usetex:
-        return "\\verb+" + string + "+"
+    if viscous.mpl.rcParams["text.usetex"] is True:
+        return "\\texttt{{{}}}".format(string.replace("_","\_"))
     else:
         return string

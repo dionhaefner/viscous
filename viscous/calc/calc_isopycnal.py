@@ -46,7 +46,7 @@ def isopycnal_arr(arrin,target_density,pd,interp=None):
         x1 = pd[i0p,i1,i2]
         x2 = pd[i0m,i1,i2]
         dx = x2 - x1
-        dx[dx < 1E-5] = np.nan
+        dx[np.abs(dx) < 1E-2] = 0.5 * (target_density - x1)
 
         if len(arrin.shape) > 1:
             y1 = arrin[i0p,i1,i2]

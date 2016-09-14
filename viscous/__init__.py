@@ -13,3 +13,4 @@ from viscous.set_style import set_style
 sanitize = sanitize.sanitize
 figsize = figsize.figsize
 despine = despine.despine
+filter_invalid = viscous.utilities.filter_invalid
