@@ -11,15 +11,15 @@ axes.linewidth : 0.5
 
 xtick.major.width : 0.5
 xtick.major.size : 2
-xtick.labelsize : 10.0
+xtick.labelsize : 9.0
 
 ytick.major.width : 0.5
 ytick.major.size : 2
-ytick.labelsize : 10.0
+ytick.labelsize : 9.0
 
 lines.linewidth : 1
 
-legend.fontsize : 10.0
+legend.fontsize : 9.0
 
 savefig.dpi : 300
 
