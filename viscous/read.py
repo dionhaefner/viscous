@@ -39,6 +39,18 @@ def read_t_coords(path,return_dx=False):
     else:
         return lon,lat,depth
 
+def read_ocean_t_depth(path):
+    full_data = Dataset(path,"r")
+    h = np.array(full_data.variables["HT"][:])/1E2 # cm -> m
+    full_data.close()
+    return h
+
+def read_ocean_u_depth(path):
+    full_data = Dataset(path,"r")
+    h = np.array(full_data.variables["HU"][:])/1E2 # cm -> m
+    full_data.close()
+    return h
+
 def read_density(path):
     full_data = Dataset(path,"r")
     rho = np.array(full_data.variables["RHO"][0,...],dtype=np.float64) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3

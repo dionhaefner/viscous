@@ -14,7 +14,7 @@ setup(name='viscous',
       author_email='mail@dionhaefner.de',
       url='',
       packages = find_packages(),
-      install_requires=['numpy','scipy','matplotlib','seaborn','ipython'],
+      install_requires=['numpy','scipy','matplotlib'],
       include_package_data=True
      # scripts=viscous_scripts()
       )
