@@ -73,7 +73,8 @@ class Regridder(object):
         elif method == "linear":
             lval = self._linear_interpolator(rpoints,values)
             mask = np.isnan(lval)
-            lval[mask] = self._nearest_interpolator([x[mask] for x in rpoints],values)
+            if np.any(mask):
+                lval[mask] = self._nearest_interpolator([x[mask] for x in rpoints],values)
             ivalues = lval
         elif method == "cubic":
             cval = self._cubic_interpolator(rpoints,values)
