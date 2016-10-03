@@ -57,6 +57,12 @@ def read_density(path):
     full_data.close()
     return rho
 
+def read_salinity(path):
+    full_data = Dataset(path,"r")
+    pd = np.array(full_data.variables["SALT"][0,...]) # g/kg
+    full_data.close()
+    return pd
+
 def read_potential_density(path):
     full_data = Dataset(path,"r")
     pd = np.array(full_data.variables["PD"][0,...]) / 1E3 * 1E2**3 # g/cm^3 -> kg/m^3

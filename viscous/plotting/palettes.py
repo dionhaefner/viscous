@@ -16,7 +16,7 @@ def dark(**kwargs):
 
 def diverging(**kwargs):
     light = (.99, .99, .99)
-    colors = [husl.husl_to_rgb(240,99,55),light,husl.husl_to_rgb(10,99,55)]
+    colors = [husl.husl_to_rgb(240,99,55),light,husl.husl_to_rgb(11,99,35)]
     return mplc.LinearSegmentedColormap.from_list("husl_diverging",colors)
 
 def contours(**kwargs):
