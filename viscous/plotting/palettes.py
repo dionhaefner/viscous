@@ -9,10 +9,20 @@ def light(**kwargs):
     colors = [light,husl.husl_to_rgb(240,99,55)]
     return mplc.LinearSegmentedColormap.from_list("husl_light",colors)
 
+def light_r(**kwargs):
+    light = (.99, .99, .99)
+    colors = [husl.husl_to_rgb(240,99,55),light]
+    return mplc.LinearSegmentedColormap.from_list("husl_light_r",colors)
+
 def dark(**kwargs):
     dark = (.15, .15, .15)
     colors = [dark,husl.husl_to_rgb(240,99,55)]
     return mplc.LinearSegmentedColormap.from_list("husl_dark",colors)
+
+def dark_r(**kwargs):
+    dark = (.15, .15, .15)
+    colors = [husl.husl_to_rgb(240,99,55),dark]
+    return mplc.LinearSegmentedColormap.from_list("husl_dark_r",colors)
 
 def diverging(**kwargs):
     light = (.99, .99, .99)
