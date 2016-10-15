@@ -8,17 +8,17 @@ figure.dpi : 80
 
 axes.titlesize : 10.0
 axes.labelsize : 9.0
-axes.linewidth : 0.5
+axes.linewidth : 0.8
 
-xtick.major.width : 0.5
+xtick.major.width : 0.8
 xtick.major.size : 2
 xtick.labelsize : 9.0
 
-ytick.major.width : 0.5
+ytick.major.width : 0.8
 ytick.major.size : 2
 ytick.labelsize : 9.0
 
-lines.linewidth : 1
+lines.linewidth : 1.2
 
 legend.fontsize : 9.0
 legend.markerscale : 1.
