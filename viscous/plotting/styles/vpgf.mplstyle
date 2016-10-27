@@ -29,5 +29,5 @@ savefig.dpi : 500
 font.family : serif
 
 pgf.texsystem : pdflatex
-pgf.preamble : \usepackage[T1]{fontenc}, \usepackage[utf8]{inputenc}, \usepackage{amsmath}, \usepackage{libertine}, \usepackage{FiraSans}, \usepackage{newtxmath}, \usepackage{FiraMono}, \usepackage{siunitx}
+pgf.preamble : \usepackage[T1]{fontenc}, \usepackage[utf8]{inputenc}, \usepackage{amsmath}, \usepackage{MnSymbol}, \usepackage[lf]{MinionPro}, \usepackage[lf]{FiraSans}, \usepackage[lf]{FiraMono}, \usepackage{siunitx}
 pgf.rcfonts : False
